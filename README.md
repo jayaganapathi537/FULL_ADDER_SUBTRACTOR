@@ -38,18 +38,68 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+**FULL ADDER**
+![319882204-af7159f5-9486-425d-a3d8-cfce9cd84a78](https://github.com/user-attachments/assets/83fc4068-b35c-46b4-b69f-fa24fab85d2a)
+
+**FULL SUBTRACTOR**
+![319882332-71fd1177-945e-45be-a824-fa5c9f057fec](https://github.com/user-attachments/assets/51646d8a-e82b-4288-b65c-3e034d724fcc)
+
 **Procedure**
 
-Write the detailed procedure here
+1)Create a New Project: *Open Quartus and create a new project by selecting "File" > "New Project Wizard." *Follow the wizard's instructions to set up your project, including specifying the project name, location, and target device (FPGA).
+
+2)Create a New Design File: *Once the project is created, right-click on the project name in the Project Navigator and select "Add New File." *Choose "Verilog HDL File" or "VHDL File," depending on your chosen hardware description language.
+
+3)Write the Combinational Logic Code: *Open the newly created Verilog or VHDL file and write the code for your combinational logic.
+
+4)Compile the Project: *To compile the project, click on "Processing" > "Start Compilation" in the menu. *Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
+
+5)Analyze and Fix Errors: *If there are any errors or warnings during the compilation process, Quartus will display them in the Messages window. *Review and fix any issues in your code if necessary. *View the RTL diagram.
+
+6)Verification: *Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF". *Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All. *Give the Input Combinations according to the Truth Table and then simulate the Output Waveform.
 
 **Program:**
 
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
+**FULL ADDER**
+
+**
+module fulladder(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+wire w1,w2,w3,w4;       
+xor(w1,a,b);
+xor(sum,w1,cin);        
+and(w2,a,b);
+and(w3,b,cin);
+and(w4,cin,a);
+or(carry,w2,w3,w4);
+endmodule**
+
+**FULL SUBTRACTOR**
+
+**
+module fullsub(a,b,Bin,BO,DIFF);
+input a,b,Bin;
+output BO,DIFF;
+assign DIFF = a ^ b ^ Bin;
+assign BO = (a & b) | ((a ^ b) & Bin);
+endmodule**
 
 **RTL Schematic**
 
+**FULL ADDER**
+![319880709-6b5ca9eb-a364-4365-94ad-9acb7b4da922](https://github.com/user-attachments/assets/23f98482-322a-4e8b-b9c3-adb2542accda)
+**FULL SUBTRACTOR**
+![319880804-97efa979-764c-410b-b5cf-78b4f8f24300](https://github.com/user-attachments/assets/2f542bab-a5cd-4945-9f55-5c6b10ac546e)
+
 **Output Timing Waveform**
+**FULL ADDER**
+![Screenshot 2024-12-02 121551](https://github.com/user-attachments/assets/66565b9f-ed5f-41f7-8d14-afd0ef514822)
+
+**FULL SUBTRACTOR**
+![Screenshot 2024-12-02 121603](https://github.com/user-attachments/assets/44fa5ea7-396a-4a5e-8a5a-7e3c1d5fdc44)
 
 **Result:**
 
